@@ -27,13 +27,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initButtonHandlers();
-        TextView allProfiles = findViewById(R.id.textViewNumbersOfProfiles);
-        allProfiles.setText(generateAllProfilesText());
+        updateProfileCOuntStatistic();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        updateProfileCOuntStatistic();
+    }
+
+    private void updateProfileCOuntStatistic() {
         TextView allProfiles = findViewById(R.id.textViewNumbersOfProfiles);
         allProfiles.setText(generateAllProfilesText());
     }

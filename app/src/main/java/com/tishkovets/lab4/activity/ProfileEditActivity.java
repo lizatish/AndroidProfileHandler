@@ -94,7 +94,6 @@ public class ProfileEditActivity extends AppCompatActivity {
         branch.setAdapter(new ArrayAdapter<Branch>(this, android.R.layout.simple_spinner_dropdown_item, branchRepository.getAll()));
         Spinner experience = getExperience();
         experience.setAdapter(new ArrayAdapter<ExperienceLevel>(this, android.R.layout.simple_spinner_dropdown_item, experienceLevelRepository.getAll()));
-        getRadioGroupEducation();
         isAgreetoDataProcessing().setOnClickListener(v -> {
             getButtonAdd().setEnabled(((Switch) v).isChecked());
         });
