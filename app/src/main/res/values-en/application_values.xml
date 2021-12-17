@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>>
+    <string name="buttonNewProfile">New profile</string>
+    <string name="buttonStatistics">Statistics</string>
+    <string name="buttonProfileList">List profiles</string>
+    <string name="textViewListProfiles">Profiles forms</string>
+    <string name="textViewNewProfile">New profile</string>
+    <string name="textViewInitials">Full name:</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="patronymic">Patronymic</string>
+    <string name="textViewEducation">Education:</string>
+    <string name="agrement">I confirm the authenticity of the information provided and give my consent to the processing of my personal data</string>
+    <string name="incompleteEducation">Lower secondary grade</string>
+    <string name="middle">Middle grade</string>
+    <string name="high">High grade</string>
+    <string name="branch">Branch:</string>
+    <string name="branchLike">Desired branch of work:</string>
+    <string name="experience">Experience:</string>
+    <string name="salary">Desired salary level:</string>
+    <string name="employment">Type of employment desired:</string>
+    <string name="fullTime">Full time</string>
+    <string name="partTime">Part time</string>
+    <string name="oneTime">One time</string>
+    <string name="staging">Internship</string>
+    <string name="noPhysicalBoundaries">NO PHYSICAL RESTRICTIONS</string>
+    <string name="yesPhysicalBoundaries">THERE ARE PHYSICAL RESTRICTIONS</string>
+    <string name="noCryminalRecords">NO JUDGMENT</string>
+    <string name="yesCryminalRecords">THERE IS JUDGMENT</string>
+    <string name="additionalInformation">Additional information from the applicant:</string>
+    <string name="setAdditionalInformationHere">Please provide additional information here</string>
+    <string name="back">BACK</string>
+    <string name="add">ADD</string>
+    <string name="clear">CLEAR</string>
+    <string name="delete">DELETE</string>
+    <string name="edit">EDIT</string>
+    <string name="allProfiles">Total in the database of profiles: </string>
+    <string name="popularEducation">Most often, applicants have an education: </string>
+    <string name="popularBranch">Most demanded industry: </string>
+    <string name="popularExperience">Most common experience: </string>
+    <string name="averageSalary">Average expected salary: </string>
+    <string name="popularEmployment">Most desirable type of employment: </string>
+    <string name="allProfilesTextPattern">Number of profiles in the database: %s</string>
+    <string name="salaryPattern">%s rub</string>
+
+    <array name="branch">
+        <item>State organizations</item>
+        <item>Extractive industry</item>
+        <item>Information Technology</item>
+        <item>Services</item>
+    </array>
+
+    <array name="experience">
+        <item>No experience</item>
+        <item>From 1 to 3 years</item>
+        <item>From 3 to 6 years</item>
+        <item>Over 6 years</item>
+    </array>
+</resources>
