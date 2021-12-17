@@ -19,19 +19,19 @@
             android:id="@+id/buttonProfilesBack"
             android:layout_width="106dp"
             android:layout_height="match_parent"
-            android:text="Назад" />
+            android:text="@string/back" />
 
         <Button
             android:id="@+id/buttonProfilesEdit"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:text="Редактировать" />
+            android:text="@string/edit" />
 
         <Button
             android:id="@+id/buttonProfilesRemove"
             android:layout_width="165dp"
             android:layout_height="match_parent"
-            android:text="Удалить" />
+            android:text="@string/delete" />
     </LinearLayout>
 
     <TextView
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:text="Список анкет"
+        android:text="@string/buttonProfileList"
         android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -48,25 +48,24 @@
 
     <TextView
         android:id="@+id/profileText"
-        android:layout_width="394dp"
-        android:layout_height="500dp"
+        android:layout_width="397dp"
+        android:layout_height="421dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewListOfProfiles"
-        app:layout_constraintVertical_bias="0.747" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Spinner
         android:id="@+id/listProfiles"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="359dp"
+        android:layout_height="48dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/profileText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewListOfProfiles" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewListOfProfiles"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

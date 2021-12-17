@@ -1,7 +1,7 @@
 package com.tishkovets.lab4.domain;
 
 public class Profile {
-    public Long id;
+    public int id;
     private String name;
     private String secondName;
     private String patronymic;
@@ -18,11 +18,11 @@ public class Profile {
     private String additionalInformation;
     private boolean isAgreement;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -131,6 +131,9 @@ public class Profile {
     }
 
     public String getAdditionalInformation() {
+        if (additionalInformation == null) {
+            return "";
+        }
         return additionalInformation;
     }
 

@@ -1,9 +1,11 @@
 package com.tishkovets.lab4.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -16,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.tishkovets.lab4.R;
 import com.tishkovets.lab4.domain.Branch;
+import com.tishkovets.lab4.domain.Education;
 import com.tishkovets.lab4.domain.ExperienceLevel;
 import com.tishkovets.lab4.domain.Profile;
 import com.tishkovets.lab4.repository.BranchRepository;
@@ -40,14 +43,11 @@ public class ProfileEditActivity extends AppCompatActivity {
         branchRepository = BranchRepositoryImpl.getInstance(getResources().getStringArray(R.array.branch));
         experienceLevelRepository = ExperienceLevelRepositoryImpl.getInstance(getResources().getStringArray(R.array.experience));
 
-        Profile profile = null;
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            profile = (Profile) extras.get("profile");
-        }
+        Profile profile = getProfile();
         initFormData(profile);
 
         initButtonHandlers();
+
     }
 
     private void initButtonHandlers() {
@@ -57,15 +57,24 @@ public class ProfileEditActivity extends AppCompatActivity {
         Button clear = findViewById(R.id.buttonClear);
         clear.setOnClickListener(v -> clearForm());
 
-        Button save = findViewById(R.id.buttonAdd);
-        save.setOnClickListener(v -> saveForm());
+        Button save = getButtonAdd();
+        save.setOnClickListener(v -> {
+            saveForm();
+            Profile profile = getProfile();
+            if (profile != null) {
+                Intent result = new Intent();
+                result.putExtra("id", profile.getId());
+                setResult(RESULT_OK, result);
+            }
+            finish();
+        });
 
         SeekBar seekBar = getSeekBarSalaryLevel();
         TextView salary = getTextViewSalary();
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                salary.setText(Integer.valueOf(progress).toString());
+                salary.setText(String.format(getResources().getString(R.string.salaryPattern), Integer.valueOf(progress).toString()));
             }
 
             @Override
@@ -80,20 +89,15 @@ public class ProfileEditActivity extends AppCompatActivity {
         });
     }
 
-    private TextView getTextViewSalary() {
-        return findViewById(R.id.textViewSalary);
-    }
-
-    private SeekBar getSeekBarSalaryLevel() {
-        return findViewById(R.id.seekBarSalaryLevel);
-    }
-
     private void initFormData(Profile profile) {
         Spinner branch = getBranch();
         branch.setAdapter(new ArrayAdapter<Branch>(this, android.R.layout.simple_spinner_dropdown_item, branchRepository.getAll()));
         Spinner experience = getExperience();
         experience.setAdapter(new ArrayAdapter<ExperienceLevel>(this, android.R.layout.simple_spinner_dropdown_item, experienceLevelRepository.getAll()));
-getRadioGroupEducation();
+        getRadioGroupEducation();
+        isAgreetoDataProcessing().setOnClickListener(v -> {
+            getButtonAdd().setEnabled(((Switch) v).isChecked());
+        });
 
         clearForm();
 
@@ -102,10 +106,11 @@ getRadioGroupEducation();
             getSurname().setText(profile.getSecondName());
             getPatronymic().setText(profile.getPatronymic());
             getRadioGroupEducation().check(profile.getEducationLevel().getId());
+//            ((RadioButton) getRadioGroupEducation().getChildAt(profile.getEducationLevel().getId())).setChecked(true);
             getBranch().setSelection(profile.getBranch().getId());
             getExperience().setSelection(profile.getExperienceLevel().getId());
             getSeekBarSalaryLevel().setProgress(profile.getSalary());
-            getTextViewSalary().setText(Integer.valueOf(profile.getSalary()).toString());
+            getTextViewSalary().setText(String.format(getResources().getString(R.string.salaryPattern), Integer.valueOf(profile.getSalary()).toString()));
             isFullEmployment().setChecked(profile.isFullTime());
             isOneTimeEmployment().setChecked(profile.isOneTime());
             isPartEmployment().setChecked(profile.isPartTime());
@@ -117,7 +122,29 @@ getRadioGroupEducation();
     }
 
     private void saveForm() {
-
+        Profile profile = getProfile();
+        if (profile == null) {
+            profile = new Profile();
+            profile.setId(profileRepository.getLastId() + 1);
+        }
+        profile.setName(getName().getText().toString());
+        profile.setSecondName(getSurname().getText().toString());
+        profile.setPatronymic(getPatronymic().getText().toString());
+        int checkedRadioButtonId = getRadioGroupEducation().getCheckedRadioButtonId();
+        profile.setEducationLevel(new Education(checkedRadioButtonId, ((RadioButton) findViewById(checkedRadioButtonId)).getText().toString()));
+        Branch branch = (Branch) getBranch().getSelectedItem();
+        profile.setBranch(new Branch(branch.getId(), branch.getName()));
+        ExperienceLevel experienceLevel = (ExperienceLevel) getExperience().getSelectedItem();
+        profile.setExperienceLevel(experienceLevel);
+        profile.setSalary(getSeekBarSalaryLevel().getProgress());
+        profile.setFullTime(isFullEmployment().isChecked());
+        profile.setPartTime(isPartEmployment().isChecked());
+        profile.setOneTime(isOneTimeEmployment().isChecked());
+        profile.setStaging(isInternshipEmployment().isChecked());
+        profile.setNoPhysicalRestriction(isNoPhysicalBoundaries().isChecked());
+        profile.setNoCriminalRecords(noCriminalRecprds().isChecked());
+        profile.setAdditionalInformation(getAdditionalText().getText().toString());
+        profileRepository.save(profile);
     }
 
     private void clearForm() {
@@ -136,7 +163,7 @@ getRadioGroupEducation();
         experience.setSelection(0);
         SeekBar seekBarSalaryLevel = getSeekBarSalaryLevel();
         seekBarSalaryLevel.setProgress(0);
-        getTextViewSalary().setText("0");
+        getTextViewSalary().setText(String.format(getResources().getString(R.string.salaryPattern), "0"));
 
         CheckBox checkBoxIsFullEmployment = isFullEmployment();
         checkBoxIsFullEmployment.setChecked(false);
@@ -157,6 +184,27 @@ getRadioGroupEducation();
 
         Switch agreement = isAgreetoDataProcessing();
         agreement.setChecked(false);
+        getButtonAdd().setEnabled(false);
+    }
+
+
+    @Nullable
+    private Profile getProfile() {
+        Profile profile = null;
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            long profileId = (long) extras.get("profileId");
+            profile = profileRepository.getById((int) profileId);
+        }
+        return profile;
+    }
+
+    private TextView getTextViewSalary() {
+        return findViewById(R.id.textViewSalary);
+    }
+
+    private SeekBar getSeekBarSalaryLevel() {
+        return findViewById(R.id.seekBarSalaryLevel);
     }
 
     private Switch isAgreetoDataProcessing() {
@@ -218,5 +266,10 @@ getRadioGroupEducation();
     private TextView getTextViewById(int p) {
         return findViewById(p);
     }
+
+    private Button getButtonAdd() {
+        return findViewById(R.id.buttonAdd);
+    }
+
 
 }

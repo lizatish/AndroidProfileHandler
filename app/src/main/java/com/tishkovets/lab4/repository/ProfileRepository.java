@@ -3,15 +3,17 @@ package com.tishkovets.lab4.repository;
 import com.tishkovets.lab4.domain.Profile;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface ProfileRepository {
 
-    Collection<Profile> getAll();
+    List<Profile> getAll();
 
-    Profile getById(Long id);
+    Profile getById(int id);
 
     void save(Profile profile);
 
-    void delete(Long id);
+    void delete(int id);
 
+    int getLastId();
 }

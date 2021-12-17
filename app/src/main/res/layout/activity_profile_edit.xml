@@ -9,7 +9,7 @@
         android:id="@+id/buttonProfileEditBack"
         android:layout_width="135dp"
         android:layout_height="wrap_content"
-        android:text="Назад"
+        android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonClear"
         app:layout_constraintHorizontal_bias="0.5"
@@ -19,7 +19,7 @@
         android:id="@+id/buttonAdd"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
-        android:text="Добавить"
+        android:text="@string/add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -29,7 +29,7 @@
         android:id="@+id/buttonClear"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
-        android:text="Очистить"
+        android:text="@string/clear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonAdd"
         app:layout_constraintHorizontal_bias="0.5"
@@ -117,21 +117,21 @@
                     android:id="@+id/isIncompleteEducation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Неполное среднее"
+                    android:text="@string/incompleteEducation"
                     android:textSize="18dp" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/middle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Среднее"
+                    android:text="@string/middle"
                     android:textSize="18dp" />
 
                 <RadioButton
                     android:id="@+id/isHigherEducation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Высшее"
+                    android:text="@string/high"
                     android:textSize="18dp" />
             </RadioGroup>
 
@@ -182,7 +182,7 @@
                 android:id="@+id/textViewEmployment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Тип желаемой занятости:"
+                android:text="@string/employment"
                 android:textSize="22dp" />
 
             <TableLayout
@@ -197,14 +197,14 @@
                         android:id="@+id/isFullEmployment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Полная занятость"
+                        android:text="@string/fullTime"
                         android:textSize="18dp" />
 
                     <CheckBox
                         android:id="@+id/isOneTimeEmployment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Разовая работа"
+                        android:text="@string/oneTime"
                         android:textSize="18dp" />
 
                 </TableRow>
@@ -217,14 +217,14 @@
                         android:id="@+id/isPartEmployment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Частичная занятость"
+                        android:text="@string/partTime"
                         android:textSize="18dp" />
 
                     <CheckBox
                         android:id="@+id/isInternshipEmployment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Стажировка"
+                        android:text="@string/staging"
                         android:textSize="18dp" />
                 </TableRow>
 
@@ -233,18 +233,23 @@
             <ToggleButton
                 android:id="@+id/isNoPhysicalBoundaries"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@string/noPhysicalBoundaries"
+                android:textOff="@string/noPhysicalBoundaries"
+                android:textOn="@string/yesPhysicalBoundaries" />
 
             <ToggleButton
                 android:id="@+id/isNoCriminalRecprds"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textOff="@string/noCryminalRecords"
+                android:textOn="@string/yesCryminalRecords" />
 
             <TextView
                 android:id="@+id/textViewAdditionalInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Дополнительная информация от соискателя:"
+                android:text="@string/additionalInformation"
                 android:textSize="18dp" />
 
             <EditText
@@ -252,7 +257,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="161dp"
                 android:ems="10"
-                android:hint="Укажите здесь дополнительную информацию"
+                android:hint="@string/setAdditionalInformationHere"
                 android:inputType="textPersonName" />
 
             <LinearLayout
@@ -263,7 +268,7 @@
                 <TextView
                     android:id="@+id/textViewDataProcessing"
                     android:layout_width="315dp"
-                    android:layout_height="100dp"
+                    android:layout_height="150dp"
                     android:layout_weight="5"
                     android:text="@string/agrement" />
 

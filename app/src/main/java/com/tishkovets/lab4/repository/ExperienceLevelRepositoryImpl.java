@@ -2,8 +2,8 @@ package com.tishkovets.lab4.repository;
 
 import com.tishkovets.lab4.domain.ExperienceLevel;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +20,7 @@ public class ExperienceLevelRepositoryImpl implements ExperienceLevelRepository 
 
     @Override
     public List<ExperienceLevel> getAll() {
-        return new ArrayList<>(experienceLevelMap.values());
+        return new LinkedList<>(experienceLevelMap.values());
     }
 
     @Override

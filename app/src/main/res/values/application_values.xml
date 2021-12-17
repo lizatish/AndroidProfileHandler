@@ -11,6 +11,37 @@
     <string name="patronymic">Отчество</string>
     <string name="textViewEducation">Образование:</string>
     <string name="agrement">Я подтверждаю подлинность предоставленной информации и даю своё согласени на обработку своих персональных данных</string>
+    <string name="incompleteEducation">Неполное среднее</string>
+    <string name="middle">Среднее</string>
+    <string name="high">Высшее</string>
+    <string name="branch">Отрасль:</string>
+    <string name="branchLike">Желаемая отрасль работы:</string>
+    <string name="experience">Опыт работы:</string>
+    <string name="salary">Желаемый уровень зарплаты:</string>
+    <string name="employment">Тип желаемой занятости:</string>
+    <string name="fullTime">Полная занятость</string>
+    <string name="partTime">Частичная занятость</string>
+    <string name="oneTime">Разовая работа</string>
+    <string name="staging">Стажировка</string>
+    <string name="noPhysicalBoundaries">НЕТ ФИЗИЧЕСКИХ ОГРАНИЧЕНИЙ</string>
+    <string name="yesPhysicalBoundaries">ЕСТЬ ФИЗИЧЕСКИЕ ОГРАНИЧЕНИЯ</string>
+    <string name="noCryminalRecords">НЕТ СУДИМОСТЕЙ</string>
+    <string name="yesCryminalRecords">ЕСТЬ СУДИМОСТИ</string>
+    <string name="additionalInformation">Дополнительная информация от соискателя:</string>
+    <string name="setAdditionalInformationHere">Укажите здесь дополнительную информацию</string>
+    <string name="back">НАЗАД</string>
+    <string name="add">ДОБАВИТЬ</string>
+    <string name="clear">ОЧИСТИТЬ</string>
+    <string name="delete">УДАЛИТЬ</string>
+    <string name="edit">РЕДАКТИРОВАТЬ</string>
+    <string name="allProfiles">Всего в базе анкет: </string>
+    <string name="popularEducation">Чаще всего соискатели имеют образование: </string>
+    <string name="popularBranch">Наиболее востребованная отрасль: </string>
+    <string name="popularExperience">Чаще всего встречающийся опыт: </string>
+    <string name="averageSalary">Средний ожидаемый уровень зарплаты: </string>
+    <string name="popularEmployment">Наиболее желаемый тип занятости: </string>
+    <string name="allProfilesTextPattern">Количество анкет в базе: %s</string>
+    <string name="salaryPattern">%s руб</string>
 
     <array name="branch">
         <item>Государственные организации</item>

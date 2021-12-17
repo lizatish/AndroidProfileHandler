@@ -4,6 +4,7 @@ import com.tishkovets.lab4.domain.Branch;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +20,7 @@ public class BranchRepositoryImpl implements BranchRepository {
 
     @Override
     public List<Branch> getAll() {
-        return new ArrayList<>(branchMap.values());
+        return new LinkedList<>(branchMap.values());
     }
 
     @Override
