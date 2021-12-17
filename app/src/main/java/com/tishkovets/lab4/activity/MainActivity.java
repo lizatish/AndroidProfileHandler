@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import com.tishkovets.lab4.R;
@@ -16,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button buttonStatisticLayer = findViewById(R.id.buttonStatistics);
+        Button buttonStatisticLayer = findViewById(R.id.buttonGetStatistics);
 
         buttonStatisticLayer.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, StatisticsActivity.class);

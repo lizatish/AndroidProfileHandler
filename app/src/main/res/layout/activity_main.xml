@@ -7,42 +7,59 @@
     tools:context=".activity.MainActivity">
 
     <Button
-        android:id="@+id/buttonStatistics"
+        android:id="@+id/buttonGetStatistics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
         android:text="Статистика"
-        app:layout_constraintStart_toStartOf="@+id/buttonNewProfile"
-        app:layout_constraintTop_toBottomOf="@+id/buttonNewProfile" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonListProfiles" />
 
     <Button
-        android:id="@+id/buttonNewProfile"
+        android:id="@+id/buttonListProfiles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
+        android:text="Список анкеt"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGetStatistics"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddNewProfile" />
+
+    <Button
+        android:id="@+id/buttonAddNewProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/buttonNewProfile"
-        app:layout_constraintEnd_toEndOf="@+id/buttonProfileList"
-        app:layout_constraintTop_toBottomOf="@+id/buttonProfileList" />
-
-    <Button
-        android:id="@+id/buttonProfileList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="70dp"
-        android:text="Список анке"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="60dp"
-        android:text="asdasda"
+        app:layout_constraintBottom_toTopOf="@+id/buttonListProfiles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewListProfiles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Анкеты соискателей"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddNewProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewNumbersOfProfiles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGetStatistics" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,30 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/buttonProfilesBack"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Назад"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="669dp" />
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/buttonProfilesEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Редактировать"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="667dp" />
+        <Button
+            android:id="@+id/buttonProfilesBack"
+            android:layout_width="106dp"
+            android:layout_height="match_parent"
+            android:text="Назад" />
 
-    <Button
-        android:id="@+id/buttonProfilesRemove"
+        <Button
+            android:id="@+id/buttonProfilesEdit"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Редактировать" />
+
+        <Button
+            android:id="@+id/buttonProfilesRemove"
+            android:layout_width="165dp"
+            android:layout_height="match_parent"
+            android:text="Удалить" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewListOfProfiles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Удалить"
-        tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="669dp" />
+        android:layout_marginTop="44dp"
+        android:text="Список анкет"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/profileText"
+        android:layout_width="394dp"
+        android:layout_height="500dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewListOfProfiles"
+        app:layout_constraintVertical_bias="0.747" />
+
+    <Spinner
+        android:id="@+id/listProfiles"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/profileText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewListOfProfiles" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
