@@ -22,5 +22,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button buttonNewProfile = findViewById(R.id.buttonAddNewProfile);
+
+        buttonNewProfile.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ProfileEditActivity.class);
+            startActivity(intent);
+        });
+
     }
 }

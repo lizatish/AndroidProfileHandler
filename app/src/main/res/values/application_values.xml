@@ -3,4 +3,26 @@
     <string name="buttonNewProfile">Новая анкета</string>
     <string name="buttonStatistics">Статистика</string>
     <string name="buttonProfileList">Список анкет</string>
+    <string name="textViewListProfiles">Анкеты соискателей</string>
+    <string name="textViewNewProfile">Новая анкета</string>
+    <string name="textViewInitials">Ф.И.О.:</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="patronymic">Отчество</string>
+    <string name="textViewEducation">Образование:</string>
+    <string name="agrement">Я подтверждаю подлинность предоставленной информации и даю своё согласени на обработку своих персональных данных</string>
+
+    <array name="branch">
+        <item>Государственные организации</item>
+        <item>Добывающая отрасль</item>
+        <item>Информационные технологии</item>
+        <item>Услуги</item>
+    </array>
+
+    <array name="experience">
+        <item>Нет опыта</item>
+        <item>От 1 до 3 лет</item>
+        <item>От 3 до 6 лет</item>
+        <item>Более 6 лет</item>
+    </array>
 </resources>

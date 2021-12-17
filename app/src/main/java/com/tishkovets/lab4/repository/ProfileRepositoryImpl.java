@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ProfileRepositoryImpl implements ProfileRepository {
 
+    private static ProfileRepository instance;
     public Map<Long, Profile> profiles = new ConcurrentHashMap<>();
 
     @Override
@@ -20,5 +21,21 @@ public class ProfileRepositoryImpl implements ProfileRepository {
         return profiles.get(id);
     }
 
+    @Override
+    public void save(Profile profile) {
+
+    }
+
+    @Override
+    public void delete(Long id) {
+
+    }
+
+    public static synchronized ProfileRepository getInstance() {
+        if (instance == null) {
+            instance = new ProfileRepositoryImpl();
+        }
+        return instance;
+    }
 
 }

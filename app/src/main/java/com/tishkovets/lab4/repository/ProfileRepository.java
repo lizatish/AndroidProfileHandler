@@ -10,4 +10,8 @@ public interface ProfileRepository {
 
     Profile getById(Long id);
 
+    void save(Profile profile);
+
+    void delete(Long id);
+
 }
